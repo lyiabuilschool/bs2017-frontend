@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./stylesheets/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+           background-color:white;
+        }
+        
+    </style>
+</head>
+
+<body>
+        <div class="container">
+            <h1 class="logol pull-left"><a href="#">Giant Hello</a></h1>
+            <div class="pull-right">
+                    <!--<div class="container">
+                        <div class="row">-->
+                            <!--<div class=" pull-right">-->
+                                <form class="form-inline">
+                                    <br>1000 coins |  
+                                    <!--在此，用br區分，而若用css比較能精確地控制(多的空白)-->
+                                    <a href="#">Buy Coirs </a>|
+                                    <a href="#">Account </a>|
+                                    <a href="#">Apps </a>|
+                                    <a href="#">Pages </a>|
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search" aria-describedby="basic-addon2">
+                                        <span class="input-group-addon" id="basic-addon2">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true">
+                                        </span>
+                                        </span>
+                                    </div>
+                                </form>
+                            <!--</div>-->
+                        <!--</div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<form class="form-inline" action="" method="POST" role="form">-->
+    <!--<div class="form-group">原註解-->
+    <!--<ul class="nav nav-pills pull-left">
+            <li role="presentation"><a href="#">1000</a></li>
+            <li role="presentation"><a href="#">Buy</a></li>
+            <li role="presentation"><a href="#">Account</a></li>
+            <li role="presentation"><a href="#">Apps</a></li>
+            <li role="presentation"><a href="#">Pages</a></li>
+        </ul>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+        </div>-->
+    <!--</form>-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <span class="glyphicon glyphicon-user" aria-hidden="true">    Lydia</span>
+                <div class="alert alert-success" role="alert">hey</div>
+                <ul class="list-group">
+                    <li class="list-group-item glyphicon glyphicon-envelope"> new message</li>
+                    <li class="list-group-item glyphicon glyphicon-camera"> comment</li>
+                    <li class="list-group-item glyphicon glyphicon-gift"> gifts</li>
+                </ul>
+                <form>
+                    <!--A-->
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Invite more Friends</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Friend's name">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Friend's Email">
+                    </div>
+                    <button type="submit" class="btn btn-default pull-right">invite</button>
+                    <div class="clearfix"></div>
+                    <!--B-->
+                    <label for="exampleInputEmail1">Account invite</label>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="xxxxxxxx">
+                    </div>
+                    <button type="submit" class="btn btn-default pull-right">Enter Code</button>
+                    <div class="clearfix"></div>
+                    <!--C 有兩種解法使Lily&yesterday不漂浮-->
+                    <label for="exampleInputEmail1">Invite Sent</label>
+                    <div class="alert alert-info" role="alert">
+                        <a href="#" class="alert-link pull-left">Lily</a>
+                        <a href="#" class="alert-link pull-right">yesterday</a>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        <a href="#" class="alert-link">Lily</a>
+                        <a href="#" class="alert-link pull-right">yesterday</a>
+                    </div>
+                </form>
+            </div>
+
+            <!--col9-1的部分-->
+            <!--邁入col-md-9的部分-->
+            <div class="col-md-9">
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation"><a href="#">Profile</a></li>
+                    <li role="presentation"><a href="#">Mail</a></li>
+                    <li role="presentation"><a href="#">Pros</a></li>
+                    <li role="presentation"><a href="#">Gifts</a></li>
+                </ul>
+                <hr>
+                <div class="row">
+                    <!--在此用row,若用container則會破版-->
+                    <div class="col-md-9">
+                        <!--col9-2的部分-->
+                        <div class="bs-example" data-example-id="media-alignment">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#"> <img alt="64x64" class="media-object" data-src="holder.js/64x64" style="width: 64px; height: 64px;"
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWFmMGM1ZDMxZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1YWYwYzVkMzFmIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy4xNzk2ODc1IiB5PSIzNi41NTYyNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
+                                            data-holder-rendered="true"> </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Top aligned media</h4>
+                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin
+                                        commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                                        condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis
+                                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#"> <img alt="64x64" class="media-object" data-src="holder.js/64x64" style="width: 64px; height: 64px;"
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWFmMGM1ZDMxZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1YWYwYzVkMzFmIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy4xNzk2ODc1IiB5PSIzNi41NTYyNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
+                                            data-holder-rendered="true"> </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Top aligned media</h4>
+                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin
+                                        commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                                        condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis
+                                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#"> <img alt="64x64" class="media-object" data-src="holder.js/64x64" style="width: 64px; height: 64px;"
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWFmMGM1ZDMxZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1YWYwYzVkMzFmIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy4xNzk2ODc1IiB5PSIzNi41NTYyNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
+                                            data-holder-rendered="true"> </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Top aligned media</h4>
+                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin
+                                        commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                                        condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis
+                                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                    <img src='https://dummyimage.com/50x50.gif' alt='' />
+                                    <img src='https://dummyimage.com/50x50.gif' alt='' />
+                                    <img src='https://dummyimage.com/50x50.gif' alt='' />
+                                    <img src='https://dummyimage.com/50x50.gif' alt='' />
+                                    <img src='https://dummyimage.com/50x50.gif' alt='' />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--col3-2的部分-->
+                    <div class="col-md-3">
+                        <img src='https://dummyimage.com/250x200.gif' alt='' />
+                        <h3>Friends</h3>
+                        <!-- <p><img src='https://dummyimage.com/50x50.gif' alt='' /><img src='https://dummyimage.com/50x50.gif'
+                            alt='' /><img src='https://dummyimage.com/50x50.gif' alt='' /></p>
+                             <p><img src='https://dummyimage.com/50x50.gif' alt='' /><img src='https://dummyimage.com/50x50.gif'
+                            alt='' /><img src='https://dummyimage.com/50x50.gif' alt='' /></p>
+                             <p><img src='https://dummyimage.com/50x50.gif' alt='' /><img src='https://dummyimage.com/50x50.gif'
+                            alt='' /><img src='https://dummyimage.com/50x50.gif' alt='' /></p>-->
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <h3>Fan of</h3>
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                        <img src='https://dummyimage.com/50x50.png' alt='' />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <ul class="list-inline">
+                <li>
+                    <dl>
+                        <dt>123 </dt>
+                        <dd>456</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>123 </dt>
+                        <dd>456</dd>
+                    </dl>
+                </li>
+            </ul>
+            <p>copyright&copy</p>
+        </div>
+
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <img src='https://dummyimage.com/250x200.png' alt='' />
+        </div>
+    </div>
+</body>
+
+</html>

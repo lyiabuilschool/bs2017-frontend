@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./stylesheets/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body{background-color: 	#E8CCFF; 
+         }
+
+    
+     h1{font-family: Microsoft JhengHei;
+         color:	#770077;
+         font-weight: bold;
+         }
+         
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>新竹市公車時刻表</h1>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div id="routes" class="btn-group-vertical btn-block">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <ul id="results" class="list-group">
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            var $routes = $("#routes"),
+                $results = $("#results");
+
+
+            $.ajax({
+                type: "GET",
+                data: null,
+                url: "https://gist.githubusercontent.com/dinowang/5ee16b9758a5d5210681269185ff93a7/raw/fb8357327b3dcb0ce7ee8887e135562c6d21bc30/hsinchu-bus-routes.json",
+                dataType: "json",
+                success: function (result, status, xhr) {
+
+
+                    $routes.empty();
+                    $results.empty();
+
+
+                    $(result).each(function (i, item) {
+                        $("<a></a>")
+                            .attr("href", item.jsonUrl)
+                            .text(item.route)
+                            .addClass("btn")
+                            .addClass("btn-default")
+                            .appendTo($routes);
+                    });
+                }
+            });
+
+
+            $routes
+                .on("click", "a.btn", function (event) {
+
+                    var $a = $(this);
+
+
+                    $a.addClass("btn-primary")
+                        .siblings("a.btn-primary")
+                        .removeClass("btn-primary");
+
+
+                    $results.empty();
+
+
+                    $.ajax({
+                        type: "GET",
+                        data: null,
+                        url: $a.attr("href"),
+                        dataType: "json",
+                        success: function (result, status, xhr) {
+                            $(result).each(function (i, item) {
+
+                                var n = 1,
+                                    schedules = [];
+
+                                while (item["班次" + n]) {
+                                    schedules.push(item["班次" + n]);
+                                    n++;
+                                }
+
+
+                                $("<li></li>")
+                                    .addClass("list-group-item")
+                                    .html("(" + item.序號 + ") 路線編號：" + item.路線編號 +
+                                        ", 起訖站：" + item.起訖站 + "<br>" + "班次：" +
+                                        schedules.join("、"))
+                                    .appendTo($results);
+                            });
+                        }
+                    });
+                    return false;
+                });
+
+        });
+    </script>
+</body>
+
+</html>

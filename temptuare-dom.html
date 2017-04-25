@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        h1 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    計算結果為：
+    <div id="result"></div>
+
+    <script>
+        var tempc = prompt("請輸入攝氏溫度");
+        var tempf = (tempc * 1.8) + 32;
+        var text = "攝氏" + tempc + "度,等於華氏" + tempf + "度";
+
+        var strong = document.createElement("h1");
+        strong.innerHTML = text;
+
+        document.getElementById("result").appendChild(strong);
+    </script>
+</body>
+
+</html>

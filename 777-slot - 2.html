@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./stylesheets/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .image-size {
+            width: 90px;
+            height: 90px;
+        }
+
+        .image {
+            width: 500px;
+            height: 300px;
+        }
+
+        .middle {
+            margin: 0 0 0 160px;
+        }
+
+        .middle-2 {
+
+            margin: 0 0 0 200px;
+        }
+
+        .img-responsive.active {
+            border: solid 5px red;
+            width: 90px;
+            height: 90px;
+        }
+
+        .back {
+            background-image: url("./images/basketballplayer.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            /*width:50px;
+            height: 40px;*/
+        }
+        
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+
+            <img id="i1" src="./images/basketball.png" class="image-size" />
+            <img id="i2" src="./images/basketball.png" class="image-size" />
+            <img id="i3" src="./images/basketball.png" class="image-size" />
+            <img id="i4" src="./images/basketball.png" class="image-size" />
+            <img id="i5" src="./images/basketball.png" class="image-size" />
+            <img id="i6" src="./images/basketball.png" class="image-size" />
+            <img id="i7" src="./images/basketball.png" class="image-size" />
+            <img id="i8" src="./images/basketball.png" class="image-size" />
+            <img id="i9" src="./images/basketball.png" class="image-size" />
+            <img id="i10" src="./images/basketball.png" class="image-size" />
+            <img id="i11" src="./images/basketball.png" class="image-size" />
+            <img id="i12" src="./images/basketball.png" class="image-size" />
+        </div>
+    </div>
+
+
+    <div class="container middle">
+        <div class="row back">
+
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <img id="i32" src="./images/basketball.png" class="image-size" />
+                <img id="i31" src="./images/basketball.png" class="image-size" />
+                <img id="i30" src="./images/basketball.png" class="image-size" />
+                <img id="i29" src="./images/basketball.png" class="image-size" />
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <!--會影響左方的四顆籃球-->
+                <!--<br><br>
+                <img src='./images/basketballplayer.png' alt='' class="image middle-2" />-->
+            </div>
+
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <img id="i13" src="./images/basketball.png" class="image-size" />
+                <img id="i14" src="./images/basketball.png" class="image-size" />
+                <img id="i15" src="./images/basketball.png" class="image-size" />
+                <img id="i16" src="./images/basketball.png" class="image-size" />
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+
+
+            <img id="i28" src="./images/basketball.png" class="image-size" />
+            <img id="i27" src="./images/basketball.png" class="image-size" />
+            <img id="i26" src="./images/basketball.png" class="image-size" />
+            <img id="i25" src="./images/basketball.png" class="image-size" />
+            <img id="i24" src="./images/basketball.png" class="image-size" />
+            <img id="i23" src="./images/basketball.png" class="image-size" />
+            <img id="i22" src="./images/basketball.png" class="image-size" />
+            <img id="i21" src="./images/basketball.png" class="image-size" />
+            <img id="i20" src="./images/basketball.png" class="image-size" />
+            <img id="i19" src="./images/basketball.png" class="image-size" />
+            <img id="i18" src="./images/basketball.png" class="image-size" />
+            <img id="i17" src="./images/basketball.png" class="image-size" />
+
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <button id="go" type="button" class="btn btn-primary btn-block" style="width:1080px;">Go!</button>
+    </div>
+
+
+    <script>
+        var bricks = [];
+        var currentBrick = 0;
+        var forwardSteps = 0;
+
+        function init() {
+            var n = 0;
+
+            while (true) {
+                ++n;
+                var brick = document.getElementById("i" + n);
+
+                if (!brick) {
+                    break;
+                }
+
+                // brick.src = "./images/basketball.png" + brick.id;
+                bricks.push(brick);
+            }
+
+            document.getElementById("go").onclick = function () {
+                forwardSteps = (bricks.length * 5);
+                forwardSteps += Math.floor(Math.random() * bricks.length);
+
+                setTimeout(forwardBrick, 50)
+            }
+        }
+
+        function forwardBrick() {
+            bricks[currentBrick].className = "image-size";
+
+            currentBrick++;
+
+            if (currentBrick >= bricks.length) {
+                currentBrick = 0;
+            }
+
+            bricks[currentBrick].className = "img-responsive active";
+
+            if (forwardSteps-- > 0) {
+                setTimeout(forwardBrick, 20);
+            }
+        }
+
+        init();
+    </script>
+</body>
+
+</html>

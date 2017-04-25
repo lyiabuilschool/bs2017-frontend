@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./stylesheets/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /*.btn-block
+        {
+            width:250px;
+        }*/
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row">123
+
+    </div>
+    
+    <div class="container">
+        <div class="row"> 
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <h3>路外停車資訊</h3>
+                <div id="areas" class="btn-group-vertical btn-block pull-left">
+
+                </div>
+            </div>
+           
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <div id="parkingLots" class="row"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script id="parkingLot-tmpl" type="text/x-jquery-tmpl">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 parkingLot">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">${parkName}</h3>
+        </div>
+        <div class="panel-body">
+          <p>${introduction}</p>
+          <p>${payGuide}</p>
+          <a class="address" 
+             href="https://www.google.com.tw/maps/?q=${wgsY},${wgsX}" target="_blank">${address}</a>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script>
+$(function () {
+   var $areas = $("#areas"),
+       $parkingLots = $("#parkingLots");
+
+       $.ajax({
+              type: "GET",
+              url:  "http://buildschool-chu.azurewebsites.net/parking/areas",
+              data: null,
+              dataType:"jsonp",
+              success: function (result, status, xhr){
+
+            $areas.empty();
+            $parkingLots.empty();
+            $(result).each(function(i, areaName){
+                $("<a></a>")
+                .attr("href", "#")
+                .data("area", areaName)
+                .text(areaName)
+                .addClass("btn")
+                .addClass("btn-default")
+                .appendTo($areas);
+            });
+          }
+       });  
+
+       $areas
+       .on("click","a.btn", function (event){
+           var $a = $(this),
+           areaName = $a.data("area");
+
+           $a.addClass("btn-primary")
+             .siblings("a.btn-primary")
+             .removeClass("btn-primary");
+
+             $parkingLots.empty();
+
+             $.ajax({
+               type:"GET",
+               url:"http://buildschool-chu.azurewebsites.net/parking/index",
+               data:  { "area": areaName },
+               dataType:"jsonp",
+               success: function (result, status, xhr){
+                   $(result).each(function(i, item){
+                     $("#parkingLot-tmpl")
+                          .tmpl(item)
+                          .data("json", item)
+                          .appendTo($parkingLots);
+                   });
+               }
+             });
+              return false;
+       });
+     
+        $parkingLots
+        .on("click","a.address",function (event){
+            var $a = $(this),
+            $parkingLot = $a.parents(".parkingLot"),
+            parkingLot = $parkingLot.data("json");
+
+            $("#parkingLotMap").remove();
+
+               $("<iframe></iframe>")
+                .attr("id", "parkingLotMap")
+                .attr("width", "100%")
+                .attr("height", 300)
+                .attr("frameBorder", 0)
+                .attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyBJADoRetu48862wwZAykrCrUmO3gOGI90&q=" + parkingLot.wgsY + "," + parkingLot.wgsX)
+                .prependTo($parkingLots);      
+return false;
+    });
+});
+
+  </script>
+</body>
+</html>

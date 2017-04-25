@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./stylesheets/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">   
+    <div class="row">
+       累進稅率
+    </div>   
+</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <div class="input-group">
+                <span class="input-group-btn">
+                    <input class="form-control" type="" >
+                    <button class="btn btn-default" type="button" >Go!</button>
+                    <button class="btn btn-default" type="button" >清除</button>
+                </span>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            </div>
+        </div>
+    </div>
+
+<script>
+   
+        var taxRae=[
+            {min:0, max:540000, rate:.05},
+            {min:540000, max:1210000, rate:.12},
+            {min:1210000, max:2420000, rate:.2},
+            {min:2420000, max:4530000, rate:.3},
+            {min:4530000, max:10310000, rate:.4},
+            {min:10310000, max:null, rate:.5}
+        ]
+
+        function taxRate(){
+            var myTotalIncome = document.getElementById("total-income").value;
+
+            var shouldPayTax = 0
+        }
+    
+</script>
+</body>
+
+</html>

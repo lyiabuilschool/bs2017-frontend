@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./stylesheets/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <img src="./images/life-1.png" class="img-responsive">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            </div>
+
+
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <input id="birthdate" class="form-control" type="date" name="birthdate">
+                        <button class="btn btn-default" type="button" id="btn" >Go!</button>
+                    </span>
+                </div>
+               
+                        <!--<ul class="list-group">
+                        
+                        </ul>-->
+                    <div id="results">
+              
+                </div>
+                
+
+                <!--<div class="panel panel-default">
+                    <div id="box" class="panel-body">
+
+                    </div>
+                </div>-->
+               
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            </div>
+        </div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+</script>
+
+    <script>
+        // function doAnalysis() { //按了分析結果取得的事情
+        //     var birthdate = document.getElementById("birthdate").value; //取得輸入日期的動作
+
+        //     var name = dateToHoroscopeName(birthdate); //birthdate為dateToHoroscopeName的引述(取值)，取得星座英文名
+        //     var number = getNumerologyIndex(birthdate);
+
+        //     var yourHoroscope = horoscopeData[name]; //取得星座中文名稱，並放入yourHoroscope(可隨意取名)裡面 var+變數
+        //     // alert(yourHoroscope.lookup[number-1]);
+        //     document.getElementById("box").innerHTML = "生日：" + birthdate +"<br>星座:" + name +"<br>生命靈數：" + number + "<br>敘述：" + yourHoroscope.lookup[number - 1];
+        // }
+        
+        function dateToHoroscopeName(dateString) { //dateString為dateToHoroscopeName傳的參數(傳值)
+            var date = new Date(dateString);
+            // m = date.getMonth() + 1, //月預設值0~11,所以要+1
+            // d = date.getDate(); //日預設值1~31
+            var m = dateString.replace(/\-/g, "").substr(4, 2);
+            var d = dateString.replace(/\-/g, "").substr(6, 2);
+            
+            var md = (m * 100) + parseInt(d);
+            if (md >= 121 && md <= 218) {
+                return "aquarius";
+            } else if (md >= 219 && md <= 320) {
+                return "pisces";
+            } else if (md >= 321 && md <= 420) {
+                return "aries";
+            } else if (md >= 421 && md <= 521) {
+                return "taurus";
+            } else if (md >= 522 && md <= 621) {
+                return "gemini";
+            } else if (md >= 622 && md <= 722) {
+                return "cancer";
+            } else if (md >= 723 && md <= 822) {
+                return "leo";
+            } else if (md >= 823 && md <= 923) {
+                return "virgo";
+            } else if (md >= 924 && md <= 1023) {
+                return "libra";
+            } else if (md >= 1024 && md <= 1122) {
+                return "scorpio";
+            } else if (md >= 1123 && md <= 1221) {
+                return "sagittarius";
+            } else if (md >= 1222 && md <= 120) {
+                return "capricorn";
+            }
+        }
+
+        function getNumerologyIndex(dateString) {
+            // var date = new Date(dateString),
+            //     y = date.getFullYear().toString,
+            //     m = date.getMonth().toString,
+            //     d = date.getDate().toString,
+            ymd = dateString.replace(/\-/g, "");
+            var sum = 0;
+
+            for (var i = 0; i < ymd.length; i++) { //i從第一個數跑到最後面的數字
+                sum = sum + parseInt(ymd.charAt(i));
+                // sum += parseInt(ymd.charAt(i));
+            }
+            if (sum > 9) {
+                sum = getNumerologyIndex(sum.toString());
+            }
+            return sum;
+        }
+        document.getElementById("btn").onclick = doAnalysis;
+
+        function doAnalysis(){
+
+
+            var birthdate = $("#birthdate").val();           
+            var name = dateToHoroscopeName(birthdate);
+            var url = "https://gist.githubusercontent.com/dinowang/5290d4cebf96a666c29ab0878afeb2f1/raw/9516581cb54154d070cf287ebd31d9bce217a495/" + name + ".json";
+        
+            $.ajax({
+            type: "GET",
+            url: url,
+            data: null,
+            dataType: "json",
+            error: function (result, status, xhr) {
+                alert("無法取得 server 上的資料");
+            },
+            success: function (result, status, xhr) {
+                var index = getNumerologyIndex(birthdate);
+
+                var html = "<p><span class='label label-info'>" + 
+                        birthdate + "</span> 出生的你，星座是 <em>" + 
+                        result.name + "</em></p>" +
+                        "<p>你的生命靈數：<br>" + index + ". " + 
+                        result.lookup[index - 1] + "</p>";
+
+         // $("<li></li>")
+         $("<panel></panel>")
+                  .addClass("list-group-item")
+                  .html(html)
+                  .prependTo("#results");
+            }
+            });
+        }
+      $("#birthdate").keyup(function (event) {
+        if (event.keyCode == 13) {
+          doAnalysis();
+        }
+      });                
+    </script>
+
+</body>
+
+</html>

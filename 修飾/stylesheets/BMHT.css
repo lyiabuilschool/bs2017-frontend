@@ -1,0 +1,14 @@
+.banner {
+    background: -moz-linear-gradient(-45deg, rgba(252, 245, 50, 1) 0%, rgba(198, 252, 136, 0.71) 28%, rgba(88, 116, 163, 0.55) 43%, rgba(105, 59, 109, 0.44) 54%, rgba(105, 59, 109, 0.27) 70%, rgba(247, 17, 9, 0.21) 76%, rgba(247, 17, 9, 0.16) 81%, rgba(247, 17, 9, 0.09) 88%, rgba(166, 129, 158, 0) 96%, rgba(125, 185, 232, 0) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(252, 245, 50, 1) 0%, rgba(198, 252, 136, 0.71) 28%, rgba(88, 116, 163, 0.55) 43%, rgba(105, 59, 109, 0.44) 54%, rgba(105, 59, 109, 0.27) 70%, rgba(247, 17, 9, 0.21) 76%, rgba(247, 17, 9, 0.16) 81%, rgba(247, 17, 9, 0.09) 88%, rgba(166, 129, 158, 0) 96%, rgba(125, 185, 232, 0) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(252, 245, 50, 1) 0%, rgba(198, 252, 136, 0.71) 28%, rgba(88, 116, 163, 0.55) 43%, rgba(105, 59, 109, 0.44) 54%, rgba(105, 59, 109, 0.27) 70%, rgba(247, 17, 9, 0.21) 76%, rgba(247, 17, 9, 0.16) 81%, rgba(247, 17, 9, 0.09) 88%, rgba(166, 129, 158, 0) 96%, rgba(125, 185, 232, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf532', endColorstr='#007db9e8', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.float-left {
+    float: left;
+}

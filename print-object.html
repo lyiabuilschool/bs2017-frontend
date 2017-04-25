@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <pre><script>
+            // 在這裡填入你的 JavaScript 的測試程式
+            // document.writeln() 類似 C# 的 Console.WriteLine()
+            // prompt() 類似 C# 的 Console.ReadLine()
+
+            var x={
+                lastName:"Hello",
+                firstName:"Kitty",
+                gender: "Female"
+            };
+            x.fansCount=9999999;
+            x["fansCount"]=99999;
+            for(var prop in x){
+                var value=x[prop];
+
+                document.writeln("屬性"+prop+"="+value);
+            }
+        </script></pre>
+    </body>
+</html>
